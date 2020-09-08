@@ -1,0 +1,70 @@
+<div class="recuadro">
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link" href="/marca"   id="home-tab" data-toggle="tab" role="tab" aria-controls="home" aria-selected="true">Marcas</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link "  id="profile-tab"  href="/articulos" data-toggle="tab" role="tab" aria-controls="profile" aria-selected="false">Articulo</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="contact-tab" data-toggle="tab" role="tab" aria-controls="contact"  href="tipo" aria-selected="false">Tipo</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link  active" style="cursor: pointer;" id="contact-tab" data-toggle="tab" role="tab" aria-controls="contact" aria-selected="false">Sector</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="contact-tab" data-toggle="tab" href="/equipos" role="tab" aria-controls="contact" aria-selected="false">Equipos</a>
+        </li>
+    </ul>
+    <div class="container mt-5">
+        <h1>Sector</h1>
+        <form [formGroup]="formSector" (submit)="agregar(formSector.value)">
+            <div class="row justify-content-center">
+                <div class="form-group col-md-8">
+                    <label for="">Detalle:</label>
+                    <input  formControlName="detalle" type="text" class="form-control input">
+                </div>
+                <div class="form-group col-md-8">
+                    <label for="">Telefono:</label>
+                    <input  formControlName="telefono" type="text" class="form-control input">
+                </div>
+                <div class="form-group col-md-8">
+                    <label for="">Tipo Puesto:</label>
+                    <select  formControlName="tipoPuesto" class="form-control">
+                        <option *ngFor="let puesto of puestos" [value]="puesto.id_TipoSector">{{puesto.Tipo}}</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-8">
+                    <label for="">Gerencia:</label>
+                    <select  formControlName="gerencia" class="form-control">
+                        <option *ngFor="let gerencia of gerencias" [value]="gerencia.id_Dir">{{gerencia.Descripcion}}</option>
+                    </select>
+                </div>   
+                <div class="form-group col-md-8">
+                    <label for="">Ubicacion edificio:</label>
+                    <select  formControlName="ubicacion" class="form-control">
+                        <option *ngFor="let ubicacion of ubicaciones" [value]="ubicacion.Id_Ubicacion">{{ubicacion.Ubicacion}}</option>
+                    </select>
+                </div>  
+                <div class="form-group col-md-8">
+                    <div class="form-check form-check-inline col-md-4 mt-3">
+                        <input formControlName="stock" class="form-check-input" type="checkbox" id="inlineCheckbox1" value="1">
+                        <label class="form-check-label" for="inlineCheckbox1">Stock Propio</label>
+                      </div>
+                      <div class="form-check form-check-inline  col-md-4">
+                        <input formControlName="personal" class="form-check-input" type="checkbox" id="inlineCheckbox2" [value]="1">
+                        <label  class="form-check-label" for="inlineCheckbox2">Personal Propio</label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input  formControlName="activo" class="form-check-input" type="checkbox" id="inlineCheckbox3" [value]="1">
+                        <label  class="form-check-label" for="inlineCheckbox3">Activo</label>
+                      </div>
+                </div>
+            </div>
+            <div class="form-row mt-4">
+                <div class="col-md-9"></div>
+                <button type="submit" [disabled]="!formSector.valid" class="btn btn-primary">Agregar</button>
+            </div>
+        </form>
+    </div>
+</div>

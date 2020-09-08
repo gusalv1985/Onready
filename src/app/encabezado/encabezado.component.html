@@ -1,0 +1,88 @@
+<div>
+    <nav class="navbar nav-justified p-0 fixed-top">
+      <button *ngIf="phone" (click)="cambiar()" class="btn btn-link" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <i id="cursor" class='menu' [ngClass]=" mostrarMenu  ? 'fas fa-window-close' : 'fas fa-align-justify'"  style='font-size:24px;'></i>
+      </button>
+        <!-- <button (click)="cambiar()" class="btn btn-link"><i id="cursor" class='menu fas fa-align-justify' style='font-size:24px;'></i></button> -->
+      <a  class="navbar-brand" href="/">&nbsp;&nbsp; TC Ordenado      
+         <!-- <img class="img" src="assets/logo2.jpg"  width="60" height="40">  -->
+      </a>     
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          
+        </div>
+        <button class="btn btn-link" (click)="cerrarSesion()">Cerrar Sesión</button>
+     </nav> <!--final nav bar  -->
+
+    <div data-component="sidebar">
+      <div class="sidebar">
+        <ul class="list-group flex-column d-inline-block first-menu" [ngClass]="{ 'active': !mostrarMenu }">
+          <li class="list-group-item pl-3 py-2">
+            <a style="cursor: pointer;"><i class="fas fa-sticky-note" aria-hidden="true"></i><span class="ml-2 align-middle">Actas</span></a>
+            <ul class="list-group flex-column d-inline-block submenu">
+              <li class="list-group-item pl-4">
+                <a href="/nueva-acta" class="">Nueva Acta</a>
+              </li> 
+              <li class="list-group-item pl-4">
+                <a href="/actas" class="">Acta</a>
+              </li>  
+           </ul> 
+          </li> 
+    
+          <li class="list-group-item pl-3 py-2">
+            <a style="cursor: pointer;"><i class="fas fa-edit" aria-hidden="true"></i><span class="ml-2 align-middle">ABM</span></a>
+            <ul class="list-group flex-column d-inline-block submenu">
+              <li class="list-group-item pl-4"></li>
+              
+              <li class="list-group-item pl-4">
+                <a href="/marca" class="">Marcas</a>
+              </li> 
+              <li class="list-group-item pl-4">
+                <a href="/articulos" class="">Articulos</a>
+              </li> 
+              <li class="list-group-item pl-4">
+                <a href="/tipo" class="">Tipo</a>
+              </li> 
+              <li class="list-group-item pl-4">
+                <a href="/sector" class="">Sector</a>
+              </li> 
+              <li class="list-group-item pl-4">
+                <a href="/equipos" class="">Equipos</a>
+              </li> 
+           </ul> 
+          </li> 
+
+          <li class="list-group-item pl-3 py-2">
+            <a style="cursor: pointer;"><i class="fas fa-list-ol" aria-hidden="true"></i><span class="ml-2 align-middle">Listados</span></a>
+            <ul class="list-group flex-column d-inline-block submenu">
+              <li class="list-group-item pl-4"></li>
+              <li class="list-group-item pl-4"></li>
+              <li class="list-group-item pl-4">
+                <a href="/articulos-rotos" class="">Articulos Rotos</a>
+              </li> 
+              <li class="list-group-item pl-4">
+                <a href="/por-sector" class="">Por sector</a>
+              </li> 
+              <li class="list-group-item pl-4">
+                <a href="/por-articulo" class="">Por Articulo</a>
+              </li> 
+              <li class="list-group-item pl-4">
+                <a href="/por-ubicacion" class="">Por ubicación</a>
+              </li> 
+           </ul> 
+          </li> 
+          <li class="list-group-item pl-3 py-2">
+            <a href="/compras" style="cursor: pointer;"><i class="fas fa-shopping-cart" aria-hidden="true"></i><span class="ml-2 align-middle">Ordenes</span></a>
+            
+          </li> 
+          <li class="list-group-item pl-3 py-2">
+            <a href="/reserva"><i class="fas fa-bookmark" aria-hidden="true"></i><span class="ml-2 align-middle">Reservas</span></a>
+           
+          </li> 
+          <li class="list-group-item pl-3 py-2">
+            <a href="/usuarios"><i class="fas fa-user" aria-hidden="true"></i><span class="ml-2 align-middle">Usuarios</span></a>
+            
+          </li> 
+        </ul> 
+      </div> <!-- /.sidebar -->
+</div>

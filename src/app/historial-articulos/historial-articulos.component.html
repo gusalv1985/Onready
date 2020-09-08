@@ -1,0 +1,112 @@
+
+<div class="recuadro">
+    <div class="container mt-5">
+
+        <h1>Historial de articulos</h1>
+
+        <div class="row justify-content-between" >
+            <div class="col-sm-1"></div>
+            <div class="col-sm-3">
+                <div class="form-group" >
+                    <label for="">Serial:</label>
+                    <input (input)="serial($event.target.value)" type="text" class="form-control" placeholder="Ingrese un serial...">
+                </div>
+             </div>
+             <div class="col-sm-1"></div>
+            <div  class="col-sm-6">
+                <div class="form-group">
+                    <label for="">Equipo:</label>
+                    <input  [ngModel]="Detalle" type="text" class="form-control" disabled> 
+                </div>
+            </div>
+            <div class="col-1"></div>      
+        </div> 
+
+        <div class="row justify-content-between" >
+            <div class="col-sm-1"></div>
+            <div class="col-sm-3">
+                <div class="form-group" >
+                    <label for="">Fecha de Alta:</label>
+                    <input type="datetime" disabled class="form-control" [ngModel]="Fecha | date: 'dd/MM/yyyy'" >
+                </div>
+             </div>
+             <div class="col-sm-1"></div>
+            <div  class="col-sm-6">
+                <div class="form-group">
+                    <label for="">Estado:</label>
+                    <input disabled [ngModel]="Estado" type="text" class="form-control"> 
+                </div>
+            </div>
+            <div class="col-1"></div>      
+        </div> 
+
+        <div class="row justify-content-between" >
+            <div class="col-sm-1"></div>
+            <div class="col-sm-3">
+                <div class="form-group" >
+                    <label for="">Ultimo Lugar: </label>
+                    <input type="datetime" disabled class="form-control" [ngModel]="Fecha | date: 'dd/MM/yyyy'" >
+                </div>
+             </div>
+             <div class="col-sm-1"></div>
+            <div  class="col-sm-6">
+                <div class="form-group">
+                    <label for="">Remito/Factura:</label>
+                    <input disabled [ngModel]="Remito_Factura" type="text" class="form-control"> 
+                </div>
+            </div>
+            <div class="col-1"></div>      
+        </div> 
+        
+        <div class="row justify-content-between" >
+            <div class="col-sm-1"></div>
+            <div class="col-sm-10">
+                <div class="form-group" >
+                    <label for="">Orden de compra:</label>
+                    <input disabled [ngModel]="OdeCompra" type="text" class="form-control"> 
+                </div>
+             </div>
+            <div class="col-1"></div>      
+        </div> 
+
+        <div class="row">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-10">
+                <div class="form-group" >
+                    <label for="">Observaciones:</label>
+                    <input disabled [ngModel]="Obvs" type="text" class="form-control"> 
+                </div>
+             </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-9 col-xs-0"></div>
+            <div class="col-md-2">
+                <button (click)="buscar()" type="submit" class="btn btn-primary btn-block">Buscar</button>
+            </div>
+        </div>
+     </div> <!--fin container -->
+</div>
+<div class="recuadro2">
+    <div class="container">
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Fecha</th>
+                <th scope="col">De</th>
+                <th scope="col">Para</th>
+                <th scope="col">Acta Nº</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let historia of historial">
+                <th scope="row">{{historia.fecha | date: 'dd/MM/yyyy'}}</th>
+                <td>{{historia.De}}</td>
+                <td>{{historia.Para}}</td>
+                <td>{{historia.id_Remito}}</td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+</div>
+
+
